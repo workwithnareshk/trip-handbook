@@ -36,11 +36,13 @@ export function ActivityForm({
   isNew,
   open,
   onClose,
+  onDelete,
 }: {
   activity: ItineraryActivity;
   isNew: boolean;
   open: boolean;
   onClose: () => void;
+  onDelete?: () => void;
 }) {
   const data = useData();
   const { upsert } = useStore();
@@ -84,6 +86,11 @@ export function ActivityForm({
       title={isNew ? "Add activity" : "Edit activity"}
       footer={
         <>
+          {!isNew && onDelete && (
+            <Button variant="ghost" className="mr-auto text-rose-800" onClick={onDelete}>
+              Delete
+            </Button>
+          )}
           <Button onClick={onClose}>Cancel</Button>
           <Button variant="primary" onClick={() => void save()}>
             Save

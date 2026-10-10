@@ -105,7 +105,6 @@ export default function ItineraryPage() {
                           void upsert("activities", { ...a, status }, status === "planned" ? "Marked as planned" : `Marked ${status}`)
                         }
                         onMove={(d) => move(date, a.id, d)}
-                        onDelete={() => setDeleting(a)}
                       />
                     </li>
                   ))}
@@ -135,6 +134,10 @@ export default function ItineraryPage() {
           activity={editing.activity}
           isNew={editing.isNew}
           onClose={() => setEditing(null)}
+          onDelete={() => {
+            setDeleting(editing.activity);
+            setEditing(null);
+          }}
         />
       )}
 

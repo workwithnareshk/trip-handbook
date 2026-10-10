@@ -73,7 +73,7 @@ export function ChecklistEditor({
                   aria-label="Item name"
                   value={draft}
                   onChange={(e) => setDraft(e.target.value)}
-                  className="min-h-11 flex-1 rounded-lg border border-sand-300 px-2 text-base"
+                  className="min-h-11 min-w-0 flex-1 rounded-lg border border-sand-300 px-2 text-base"
                 />
                 <IconButton label="Save name" type="submit">
                   <Check size={18} aria-hidden />
@@ -143,7 +143,7 @@ export function ChecklistEditor({
           placeholder="Add an item"
           value={newTitle}
           onChange={(e) => setNewTitle(e.target.value)}
-          className="min-h-11 flex-1 rounded-xl border border-sand-300 bg-white px-3 text-base"
+          className="min-h-11 min-w-0 flex-1 rounded-xl border border-sand-300 bg-white px-3 text-base"
         />
         <Button type="submit" disabled={!newTitle.trim()} aria-label={`Add item to ${label}`}>
           <Plus size={18} aria-hidden />

@@ -116,7 +116,7 @@ export function AttachmentList({
           )}
         </ul>
       )}
-      <input ref={input} type="file" accept={accept} multiple className="sr-only" id={`file-${ids.length}`} onChange={(e) => void addFiles(e.target.files)} tabIndex={-1} />
+      <input ref={input} type="file" accept={accept} multiple className="sr-only" aria-label="Choose files to attach" onChange={(e) => void addFiles(e.target.files)} tabIndex={-1} />
       <Button onClick={() => input.current?.click()} disabled={busy}>
         <Paperclip size={16} aria-hidden /> {busy ? "Saving…" : "Attach file"}
       </Button>

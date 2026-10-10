@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, type ReactNode } from "react";
 import { Trash2 } from "lucide-react";
@@ -252,6 +253,11 @@ export function BookingForm({ initial, isNew }: { initial: Booking; isNew: boole
         <p className="text-xs text-muted sm:col-span-2">
           Booking amounts are commitments, not expenses. Log actual payments on the Expenses page and link them to this booking so they are not counted twice. Never store card numbers, CVV or passwords here.
         </p>
+        {!isNew && (
+          <Link href={`/expenses/?new=1&booking=${encodeURIComponent(form.id)}`} className="inline-flex min-h-11 items-center text-sm font-medium text-palm-700 sm:col-span-2">
+            Log a payment for this booking as an expense
+          </Link>
+        )}
       </Section>
 
       <Card>

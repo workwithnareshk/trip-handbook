@@ -1,26 +1,61 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-sand-50: #fbf8f2;
+  --color-sand-100: #f4eee2;
+  --color-sand-200: #e7dec9;
+  --color-sand-300: #d6c9ab;
+  --color-palm-50: #eaf4f0;
+  --color-palm-100: #d1e7df;
+  --color-palm-200: #a6cfc1;
+  --color-palm-500: #2b8070;
+  --color-palm-600: #1f6b5c;
+  --color-palm-700: #185649;
+  --color-palm-800: #12433a;
+  --color-palm-900: #0d312b;
+  --color-ink: #1d2522;
+  --color-muted: #56625d;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-sand-50);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-palm-500);
+  outline-offset: 2px;
+}
+
+dialog::backdrop {
+  background: rgb(13 49 43 / 0.45);
+}
+
+/* Bottom navigation clearance on phones */
+.pb-safe {
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+}
+
+@media (min-width: 768px) {
+  .pb-safe {
+    padding-bottom: 2rem;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+  .print-break {
+    break-before: page;
+  }
 }
